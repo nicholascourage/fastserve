@@ -57,6 +57,8 @@ const toggleCompleted = () => {
       </RouterLink>
 
     </div>
+    <font-awesome-icon icon="fa-solid fa-house" />
+
     <div class="flex pb-5">
       <input
         v-model="search"
