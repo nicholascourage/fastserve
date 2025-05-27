@@ -3,8 +3,8 @@ import { ref, onMounted, watch } from 'vue'
 import axios from 'axios'
 
 const search = ref('')
-import TaskList from '../components/TaskList.vue'
-import PrimaryButton from '../components/PrimaryButton.vue'
+import TaskList from '../../components/TaskList.vue'
+import PrimaryButton from '../../components/PrimaryButton.vue'
 const tasks = ref([])
 const loading = ref(false)
 const completedOnly = ref(false)
@@ -57,8 +57,6 @@ const toggleCompleted = () => {
       </RouterLink>
 
     </div>
-    <font-awesome-icon icon="fa-solid fa-house" />
-
     <div class="flex pb-5">
       <input
         v-model="search"

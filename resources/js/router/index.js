@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import DashboardPage from '../Pages/DashboardPage.vue'
-import TasksPage from '../Pages/TasksPage.vue'
-import CreateTaskPage from '../Pages/CreateTaskPage.vue'
+import DashboardPage from '../pages/DashboardPage.vue'
+import TasksPage from '../pages/tasks/TasksPage.vue'
+import CreateTaskPage from '../pages/menus/index.vue'
 
 const routes = [
   { path: '/', component: DashboardPage, meta: { title: 'Dashboard' } },
