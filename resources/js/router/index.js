@@ -4,7 +4,7 @@ import TasksPage from '../pages/tasks/TasksPage.vue'
 import CreateTaskPage from '../pages/menus/index.vue'
 
 const routes = [
-  { path: '/', component: DashboardPage, meta: { title: 'Dashboard' } },
+  { path: '/', name: 'dashboard', component: DashboardPage, meta: { title: 'Dashboard' } },
   { path: '/tasks', component: TasksPage, meta: { title: 'Tasks' } },
   {
     path: '/tasks/create',
