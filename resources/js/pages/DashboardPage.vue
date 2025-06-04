@@ -1,7 +1,6 @@
 <template>
-  <n-config-provider :theme="theme">
-    <n-card> Your current system theme is {{ osTheme }}. </n-card>
-  </n-config-provider>
+  <n-card> Your current system theme is {{ osTheme }}. </n-card>
+
 </template>
 <script>
 import { darkTheme, useOsTheme } from "naive-ui";
