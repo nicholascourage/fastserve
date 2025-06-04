@@ -8,15 +8,32 @@
     },
     "devDependencies": {
         "@tailwindcss/vite": "^4.0.0",
+        "@vicons/antd": "^0.13.0",
+        "@vicons/carbon": "^0.13.0",
+        "@vicons/fa": "^0.13.0",
+        "@vicons/fluent": "^0.13.0",
+        "@vicons/ionicons4": "^0.13.0",
+        "@vicons/ionicons5": "^0.13.0",
+        "@vicons/material": "^0.13.0",
+        "@vicons/tabler": "^0.13.0",
         "@vitejs/plugin-vue": "^5.2.3",
         "axios": "^1.8.2",
         "concurrently": "^9.0.1",
         "laravel-vite-plugin": "^1.2.0",
+        "naive-ui": "^2.41.0",
         "prettier": "3.5.3",
         "prettier-plugin-tailwindcss": "^0.6.11",
         "tailwindcss": "^4.0.0",
+        "vfonts": "^0.0.3",
         "vite": "^6.2.4",
         "vue": "^3.5.13",
         "vue-router": "^4.5.0"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^6.7.2",
+        "@fortawesome/fontawesome-svg-core": "^6.7.2",
+        "@fortawesome/free-brands-svg-icons": "^6.7.2",
+        "@fortawesome/free-solid-svg-icons": "^6.7.2",
+        "@fortawesome/vue-fontawesome": "^3.0.0-5"
     }
 }

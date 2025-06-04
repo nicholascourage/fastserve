@@ -1,24 +1,49 @@
-<script setup>
-import AppHeader from './components/AppHeader.vue'
+<script>
+import { useTheme } from '@/composables/useTheme'
+import AppHeader from './components/AppHeader.vue';
+import SideBarMenu from "./components/SideBarMenu.vue";
+import { darkTheme, NIcon, } from 'naive-ui';
+import { defineComponent, h,ref } from 'vue';
+
+export default defineComponent({
+  components: {
+    SideBarMenu,
+    AppHeader
+  },
+  setup() {
+    const { theme } = useTheme()
+    return {
+      theme,
+      darkTheme,
+      inverted: ref(false)
+    }
+  }
+});
 </script>
 
 <template>
-  <div class="min-h-full">
-    <AppHeader />
+    <n-config-provider :theme="theme">
+      <n-layout class="h-dvh" >
+        <n-layout-header bordered>
+          <AppHeader/>
+        </n-layout-header>
+        <n-layout has-sider>
+          <SideBarMenu />
+          <n-layout content-style="padding: 30px 40px;">
+            <n-h1 prefix="bar" align-text>
+              <n-text type="primary">
+                {{ $route.meta.title }}
+              </n-text>
+            </n-h1>
+            <main>
+              <RouterView />
+            </main>
+          </n-layout>
+        </n-layout>
+        <n-layout-footer :inverted="inverted" bordered>
+          Footer Footer Footer
+        </n-layout-footer>
+      </n-layout>
+    </n-config-provider>
 
-    <div class="py-10">
-      <header>
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <h1 class="text-3xl font-bold tracking-tight">
-            {{ $route.meta.title }}
-          </h1>
-        </div>
-      </header>
-      <main>
-        <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-          <RouterView />
-        </div>
-      </main>
-    </div>
-  </div>
 </template>

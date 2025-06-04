@@ -1,44 +1,82 @@
 <script setup>
+
+import {NLayoutHeader, NIcon} from 'naive-ui'
 import AppLogo from './AppLogo.vue'
-import { useRoute } from 'vue-router'
+import {h} from "vue";
+import {RouterLink} from 'vue-router';
+import ThemeModeSwitch from "./ThemeModeSwitch.vue";
 
-const route = useRoute()
-
-const navigation = [
-  { name: 'Dashboard', href: '/', current: true },
-  { name: 'Tasks', href: '/tasks', current: false },
-]
-
-function navItemIsCurrent(item) {
-  return route.path === item.href
+function renderIcon(icon) {
+  return () => h(NIcon, null, { default: () => h(icon) });
 }
+const menuOptions = [
+  {
+    label: () => h(
+      RouterLink,
+      {
+        to: {
+          name: "dashboard",
+          params: {
+            lang: "en-US"
+          },
+        }
+      },
+      { default: () => "Dashboard" }
+    ),
+    key: "dashboard",
+  },
+  {
+    label: () => h(
+      RouterLink,
+      {
+        to: {
+          name: "tasks",
+          params: {
+            lang: "en-US"
+          }
+        }
+      },
+      { default: () => "Tasks" }
+    ),
+    key: "tasks",
+  }
+];
 </script>
 
 <template>
-  <nav class="border-b border-gray-200 bg-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div class="flex h-16 justify-between">
-        <div class="flex">
-          <div class="flex shrink-0 items-center">
-            <appLogo class="h-8" />
-          </div>
-          <div class="hidden sm:-my-px sm:ml-6 sm:flex sm:space-x-8">
-            <RouterLink
-              v-for="item in navigation"
-              :key="item.name"
-              :to="item.href"
-              :class="[
-                navItemIsCurrent(item)
-                  ? 'border-indigo-500'
-                  : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700',
-                'inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium',
-              ]"
-            >
-              {{ item.name }}
-            </RouterLink>
-          </div>
-        </div>
+  <n-layout-header bordered class="nav" :style="style">
+    <n-flex justify="space-between" class="items-center">
+      <div class="ui-logo">
+        <AppLogo/>
       </div>
-    </div>
-  </nav>
+      <div>
+        <ThemeModeSwitch/>
+      </div>
+    </n-flex>
+  </n-layout-header>
+  <n-layout-header>
+    <n-menu mode="horizontal" :inverted="inverted" :options="menuOptions" bordered  />
+  </n-layout-header>
 </template>
+
+<style scoped>
+
+.nav {
+  padding: 0px 40px;
+  align-items: center;
+}
+.ui-logo {
+
+  cursor: pointer;
+
+  font-size: 18px;
+}
+
+
+.ui-logo > svg {
+  margin-right: 12px;
+
+  height: 75px;
+  width: 200px;
+}
+</style>

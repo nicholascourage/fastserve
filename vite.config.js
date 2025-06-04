@@ -12,6 +12,9 @@ export default defineConfig({
     tailwindcss(),
     vue({
       template: {
+        compilerOptions: {
+
+        },
         transformAssetUrls: {
           // The Vue plugin will re-write asset URLs, when referenced
           // in Single File Components, to point to the Laravel web
