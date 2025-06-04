@@ -50,7 +50,11 @@ const menuOptions = [
         <AppLogo/>
       </div>
       <div>
+
+      </div>
+      <div>
         <ThemeModeSwitch/>
+
       </div>
     </n-flex>
   </n-layout-header>

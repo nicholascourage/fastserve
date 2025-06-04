@@ -1,5 +1,8 @@
 <script setup>
-import {BookOutline as BookIcon, PersonOutline as PersonIcon} from "@vicons/ionicons5";
+import {
+  BookOutline,  CartOutline , NavigateCircleOutline,
+  PricetagsOutline,
+} from "@vicons/ionicons5";
 import {h} from "vue";
 import {NIcon} from "naive-ui";
 
@@ -10,36 +13,33 @@ function renderIcon(icon) {
 const menuOptions = [
   {
     label: "Food Menu(s)",
-    key: "food-menu",
-    icon: renderIcon(BookIcon),
-    // children: [
-    //   {
-    //     type: "group",
-    //     label: "People",
-    //     key: "people",
-    //     children: [
-    //       {
-    //         label: "Narrator",
-    //         key: "narrator",
-    //         icon: renderIcon(PersonIcon)
-    //       },
-    //       {
-    //         label: "Sheep Man",
-    //         key: "sheep-man",
-    //         icon: renderIcon(PersonIcon)
-    //       }
-    //     ]
-    //   },
-    //
-    //   {
-    //     label: "Food",
-    //     key: "food",
-    //   },
-    //   {
-    //     label: "The past increases. The future recedes.",
-    //     key: "the-past-increases-the-future-recedes"
-    //   }
-    // ]
+    key: "food-menus",
+    icon: renderIcon(BookOutline),
+    children: [
+      {
+        type: "group",
+        label: "Manage",
+        key: "manage",
+        children: [
+          {
+            label: "Menu Overview",
+            key: "menu-overview",
+            icon: renderIcon(NavigateCircleOutline)
+          },
+          {
+            label: "Categories",
+            key: "categories",
+            icon: renderIcon(PricetagsOutline)
+          },
+          {
+            label: "Products",
+            key: "products",
+            icon: renderIcon(CartOutline)
+          },
+
+        ]
+      },
+    ]
   }
 ];
 </script>

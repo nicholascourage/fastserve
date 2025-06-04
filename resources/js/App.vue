@@ -4,9 +4,11 @@ import AppHeader from './components/AppHeader.vue';
 import SideBarMenu from "./components/SideBarMenu.vue";
 import { darkTheme, NIcon, } from 'naive-ui';
 import { defineComponent, h,ref } from 'vue';
+import AppFooter from "./components/AppFooter.vue";
 
 export default defineComponent({
   components: {
+    AppFooter,
     SideBarMenu,
     AppHeader
   },
@@ -41,7 +43,7 @@ export default defineComponent({
           </n-layout>
         </n-layout>
         <n-layout-footer :inverted="inverted" bordered>
-          Footer Footer Footer
+          <AppFooter/>
         </n-layout-footer>
       </n-layout>
     </n-config-provider>
