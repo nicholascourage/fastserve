@@ -1,18 +1,28 @@
 <script>
-import { useTheme } from '@/composables/useTheme'
 import AppHeader from './components/AppHeader.vue';
 import SideBarMenu from "./components/SideBarMenu.vue";
-import { darkTheme, NIcon, } from 'naive-ui';
-import { defineComponent, h,ref } from 'vue';
+import { defineComponent, onMounted, h,ref } from 'vue';
+import { loadingBarApiRef } from './routes/router'
+
 import AppFooter from "./components/AppFooter.vue";
 
+import { useLoadingBar } from 'naive-ui'
+
+
 export default defineComponent({
+  name: 'App',
   components: {
     AppFooter,
     SideBarMenu,
     AppHeader
   },
-
+  setup() {
+    const loadingBar = useLoadingBar()
+    onMounted(() => {
+      loadingBarApiRef.value = loadingBar
+      loadingBar.finish()
+    })
+  }
 
 });
 </script>
