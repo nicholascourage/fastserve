@@ -12,12 +12,19 @@ export default defineComponent({
     SideBarMenu,
     AppHeader
   },
-
-
+  setup() {
+    const { theme } = useTheme()
+    return {
+      theme,
+      darkTheme,
+      inverted: ref(false)
+    }
+  }
 });
 </script>
 
 <template>
+<!--    <n-config-provider :theme="theme">-->
       <n-layout class="h-dvh" >
         <n-layout-header bordered>
           <AppHeader/>
@@ -39,5 +46,6 @@ export default defineComponent({
           <AppFooter/>
         </n-layout-footer>
       </n-layout>
+<!--    </n-config-provider>-->
 
 </template>

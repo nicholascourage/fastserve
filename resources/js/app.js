@@ -1,18 +1,27 @@
 import '../css/app.css'
-import naive from 'naive-ui'
 
+import naive from 'naive-ui'
 
 import { createApp } from 'vue'
 
-import router from './router'
+import createDemoRouter from './routes/router'
 
-import App from './App.vue'
+import AppRoot from './AppRoot.vue'
 
-const app = createApp(App)
+import { routes } from './routes/routes.js'
+
+const app = createApp(AppRoot)
+
+const router = createDemoRouter(app, routes)
+
 const meta = document.createElement('meta')
+
 meta.name = 'naive-ui-style'
+
 app.use(router)
 
-app.mount('#app')
-
 app.use(naive)
+
+router.isReady().then(() => {
+  app.mount('#app')
+})
