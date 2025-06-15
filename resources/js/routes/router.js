@@ -1,8 +1,8 @@
 import {createRouter, createWebHistory} from "vue-router";
+
 import {nextTick} from "vue";
 
 export const loadingBarApiRef = {}
-
 
 export default function createDemoRouter(app, routes) {
   const router = createRouter({

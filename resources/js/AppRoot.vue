@@ -1,8 +1,9 @@
 <script>
 import { defineComponent, h,ref } from 'vue';
 
-import { useTheme } from '@/composables/useTheme'
-import { darkTheme, NIcon, } from 'naive-ui';
+import { useTheme } from '@/composables/useTheme';
+
+import { darkTheme } from 'naive-ui';
 
 import App from './App.vue';
 
@@ -29,5 +30,4 @@ export default defineComponent({
         <App/>
       </n-loading-bar-provider>
     </n-config-provider>
-
 </template>
